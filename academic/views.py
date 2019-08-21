@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -35,6 +36,8 @@ def resultbook_detail_view(request, pk):
 
 def resultbook_create_view(request):
     form = ResultbookModelForm(request.POST or None)
+    print(request)
+
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user
@@ -44,10 +47,10 @@ def resultbook_create_view(request):
     return render(request, 'academic/resultbook_create.html', context)
 
 
-def result_create_view(request):
+def result_create_modal(request, pk):
     form = ResultModelForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return reversed(request, 'academic/resultbook_detail.html')
+    return HttpResponse('success')

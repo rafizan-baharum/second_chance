@@ -1,7 +1,7 @@
 from django.urls import path
 
 from academic.views import index_page, resultbook_create_view, resultbook_list_view, resultbook_detail_view, \
-    result_create_view
+    result_create_modal
 
 urlpatterns = [
     path('', index_page),
@@ -9,7 +9,7 @@ urlpatterns = [
     path('resultbooks/', resultbook_list_view),
     path('resultbooks/list/', resultbook_list_view),
     path('resultbooks/<str:pk>/', resultbook_detail_view),
-    path('resultbooks/<str:pk>/results/create', result_create_view),
+    path('resultbooks/<str:pk>/results/create', result_create_modal),
     # path('resultbooks/<str:pk>/summary', resultbook_summary_view),
     # path('resultbooks/<str:pk>/detail', resultbook_detail_view),
 ]

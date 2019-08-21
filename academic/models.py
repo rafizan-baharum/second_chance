@@ -215,7 +215,7 @@ class Resultbook(models.Model):
         return f"{self.get_absolute_url()}/delete"
 
     def __str__(self):
-        return f"{self.semester.code}:{self.student.nric_no}:{self.school.code}"
+        return f"{self.pk}:{self.semester.code}:{self.student.nric_no}:{self.school.code}"
 
 
 """

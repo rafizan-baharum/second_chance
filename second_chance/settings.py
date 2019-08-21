@@ -25,7 +25,7 @@ SECRET_KEY = 'h2)d&4%b&h4-b&5zv3^25mfsv+xou)_1a^vy)s#b35ai@)ry+$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.59.102.13']
+ALLOWED_HOSTS = ['139.59.102.13', '127.0.0.1']
 
 
 # Application definition
@@ -79,18 +79,18 @@ WSGI_APPLICATION = 'second_chance.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'second_chance',
-        'USER': 'second_chance',
-        'PASSWORD': 'second_chance',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'second_chance',
+    #     'USER': 'second_chance',
+    #     'PASSWORD': 'second_chance',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 
