@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block main-content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                plugins: ['dayGrid', 'bootstrap'],
+                themeSystem: 'bootstrap',
+                events: [
+                    {
+                        "title": "All Day Event",
+                        "start": "2019-08-01"
+                    },
+                    {
+                        "title": "Long Event",
+                        "start": "2019-08-07",
+                        "end": "2019-08-10"
+                    }, {
+                        "groupId": "999",
+                        "title": "Repeating Event",
+                        "start": "2019-08-09T16:00:00+00:00"
+                    }, {
+                        "groupId": "999",
+                        "title": "Repeating Event",
+                        "start": "2019-08-16T16:00:00+00:00"
+                    }, {"title": "Conference", "start": "2019-08-20", "end": "2019-08-22"}, {
+                        "title": "Meeting",
+                        "start": "2019-08-21T10:30:00+00:00",
+                        "end": "2019-08-21T12:30:00+00:00"
+                    }, ]
+
+            });
+
+            calendar.render();
+        });
+
+    </script>{% endblock %}

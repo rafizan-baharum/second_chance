@@ -16,6 +16,11 @@ def session_list_view(request):
     context = {'sessions': qs}
     return render(request, 'counseling/session_list.html', context)
 
+def session_schedule_view(request):
+    qs = Session.objects.all()
+    context = {'sessions': qs}
+    return render(request, 'counseling/session_schedule.html', context)
+
 
 def session_detail_view(request, pk):
     session = get_object_or_404(Session, pk=pk)
