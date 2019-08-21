@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main-content %}
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Grant Detail</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-t-25">
+        <div class="col-md-3">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <div class="card-header user-header alt bg-dark">
+                        <div class="media">
+                            <a href="#">
+                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;"
+                                     alt="" src="{% static 'images/icon/indiana.jpg' %}">
+                            </a>
+                            <div class="media-body">
+                                <h2 class="text-light display-6">{{ student.name }}</h2>
+                                <p>{{ student.nric_no }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="{{ grant.get_absolute_url }}/summary">Summary</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ grant.get_absolute_url }}/detail">Detail</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="{{ grant.get_absolute_url }}/request">Request</a>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+        {% block sub-content %}
+        {% endblock %}
+
+    </div>
+{% endblock %}
+
+
+{% block main-js %}
+    <script>
+        function editStudent() {
+            window.location.assign('{{ student.get_edit_url }}');
+        }
+
+        function deleteStudent() {
+            window.location.assign('{{ student.get_delete_url }}');
+        }
+    </script>
+{% endblock %}

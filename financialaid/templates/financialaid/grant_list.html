@@ -1,0 +1,61 @@
+    {% extends "base.html" %}
+{% block main-content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Grant List</h2>
+                <button class="au-btn au-btn-icon au-btn--blue" onclick="addGrant()">
+                    <i class="zmdi zmdi-plus"></i>Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 m-t-25">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-striped table-data3">
+                    <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>AMOUNT</th>
+                        <th>APPROVED</th>
+                        <th>DISBURSED</th>
+                    </tr>
+                    </thead>
+
+                    {% for grant in grants %}
+                        <tr class='clickable-row' data-href='{{ grant.get_absolute_url }}'>
+                            <td>
+                                {{ grant.student.name }}
+                            </td>
+                            <td>
+                                {{ grant.amount }}
+                            </td>
+                            <td>
+                                {{ grant.approved_date }}
+                            </td>
+                            <td>
+                                {{ grant.disbursed_date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+
+        function addGrant() {
+            window.location.assign('/financialaid/grants/create');
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "financialaid/grant_base.html" %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Grant Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Amount</div>
+                                    <div class="col-md-9">{{ grant.amount }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Remarks</div>
+                                    <div class="col-md-9">{{ grant.remarks }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Disbursed</div>
+                                    <div class="col-md-9">{{ grant.disbursed_date }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Approved</div>
+                                    <div class="col-md-9">{{ grant.approved_date }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

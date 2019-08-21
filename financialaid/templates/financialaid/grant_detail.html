@@ -1,0 +1,132 @@
+{% extends "financialaid/grant_base.html" %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Grant Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Amount</div>
+                                    <div class="col-md-9">{{ grant.amount }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Remarks</div>
+                                    <div class="col-md-9">{{ grant.remarks }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Disbursed</div>
+                                    <div class="col-md-9">{{ grant.disbursed_date }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Approved</div>
+                                    <div class="col-md-9">{{ grant.approved_date }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Student</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Name</div>
+                                    <div class="col-md-9">{{ student.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Nick Name</div>
+                                    <div class="col-md-9">{{ student.nick_name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">NRIC</div>
+                                    <div class="col-md-9">{{ student.nric_no }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Birthdate</div>
+                                    <div class="col-md-9">{{ student.birth_date }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Address</div>
+                                    <div class="col-md-9">
+                                        {{ student.address1 }} <br/>
+                                        {{ student.address2 }} <br/>
+                                        {{ student.address3 }} <br/>
+                                        {{ student.city.name }} <br/>
+                                        {{ student.state.name }} <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">School</div>
+                                    <div class="col-md-9">{{ student.school.code }} - {{ student.school.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Gender</div>
+                                    <div class="col-md-9">{{ student.gender }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Race</div>
+                                    <div class="col-md-9">{{ student.race }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Religion</div>
+                                    <div class="col-md-9">{{ student.religion }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-12 m-t-25">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-striped table-data3">
+                    <thead>
+                    <tr>
+                        <th>AMOUNT</th>
+                        <th>APPROVED</th>
+                        <th>DISBURSED</th>
+                    </tr>
+                    </thead>
+
+                    {% for grant in grants %}
+                        <tr class='clickable-row' data-href='{{ grant.get_absolute_url }}'>
+                            <td>
+                                {{ grant.amount }}
+                            </td>
+                            <td>
+                                {{ grant.approved_date }}
+                            </td>
+                            <td>
+                                {{ grant.disbursed_date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+{% endblock %}

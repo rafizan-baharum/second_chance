@@ -1,0 +1,57 @@
+    {% extends "base.html" %}
+{% block main-content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Student List</h2>
+                <button class="au-btn au-btn-icon au-btn--blue" onclick="addStudent()">
+                    <i class="zmdi zmdi-plus"></i>Add
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 m-t-25">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-striped table-data3">
+                    <thead>
+                    <tr>
+                        <th>NRIC</th>
+                        <th>NAME</th>
+                        <th>REGISTERED</th>
+                    </tr>
+                    </thead>
+
+                    {% for student in students %}
+                        <tr class='clickable-row' data-href='{{ student.get_absolute_url }}'>
+                            <td>
+                                {{ student.nric_no }}
+                            </td>
+                            <td>
+                                {{ student.name }}
+                            </td>
+                            <td>
+                                {{ student.registered_date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+
+        function addStudent() {
+            window.location.assign('/portfolio/students/create');
+        }
+    </script>
+{% endblock %}

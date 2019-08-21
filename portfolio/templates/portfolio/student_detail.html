@@ -1,0 +1,161 @@
+{% extends "portfolio/student_base.html" %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Personal</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Name</div>
+                                    <div class="col-md-9">{{ student.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Nick Name</div>
+                                    <div class="col-md-9">{{ student.nick_name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">NRIC</div>
+                                    <div class="col-md-9">{{ student.nric_no }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Birthdate</div>
+                                    <div class="col-md-9">{{ student.birth_date }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Address</div>
+                                    <div class="col-md-9">
+                                        {{ student.address1 }} <br/>
+                                        {{ student.address2 }} <br/>
+                                        {{ student.address3 }} <br/>
+                                        {{ student.city.name }} <br/>
+                                        {{ student.state.name }} <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">School</div>
+                                    <div class="col-md-9">{{ student.school.code }} - {{ student.school.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Gender</div>
+                                    <div class="col-md-9">{{ student.gender }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Race</div>
+                                    <div class="col-md-9">{{ student.race }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Religion</div>
+                                    <div class="col-md-9">{{ student.religion }}</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {#                        {% if request.user.is_authenticated %}#}
+                        {#                            {% if request.user.is_staff %}#}
+                        {#                                <div class="form-actions">#}
+                        {#                                    <button class="btn btn-primary" onclick="editStudent()">#}
+                        {#                                        Edit#}
+                        {#                                    </button>#}
+                        {#                                    <button class="btn btn-primary" onclick="deleteStudent()">#}
+                        {#                                        Delete#}
+                        {#                                    </button>#}
+                        {#                                </div>#}
+                        {#                            {% endif %}#}
+                        {#                        {% endif %}#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Bank Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Bank</div>
+                                    <div class="col-md-9">{{ student.bank }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Account</div>
+                                    <div class="col-md-9">{{ student.bank_account_no }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Parent</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Father</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Name</div>
+                                    <div class="col-md-9">{{ student.father_name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">NRIC</div>
+                                    <div class="col-md-9">{{ student.father_nric_no }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Race</div>
+                                    <div class="col-md-9">{{ student.father_race }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Religion</div>
+                                    <div class="col-md-9">{{ student.father_religion }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Mother</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Name</div>
+                                    <div class="col-md-9">{{ student.mother_name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">NRIC</div>
+                                    <div class="col-md-9">{{ student.mother_nric_no }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Race</div>
+                                    <div class="col-md-9">{{ student.mother_race }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Religion</div>
+                                    <div class="col-md-9">{{ student.mother_religion }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

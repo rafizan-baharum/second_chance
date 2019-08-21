@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Counseling</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row m-t-25">
+        <div class="col-lg-9">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-striped table-data3">
+                    <thead>
+                    <tr>
+                        <th>Student</th>
+                        <th>Counselor</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+
+                    {% for session in sessions %}
+                        <tr class='clickable-row' data-href='{{ session.get_absolute_url }}'>
+                            <td>
+                                {{ session.student.name }}
+                            </td>
+                            <td>
+                                {{ session.counselor.name }}
+                            </td>
+                            <td>
+                                {{ session.counseled_date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Menus</h4>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="/counseling/sessions/create">Register Session</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/counseling/sessions/list">Session List</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/counseling/sessions/calendar">Session Calendar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+
+        function addSession() {
+            window.location.assign('/registration/sessions/create');
+        }
+    </script>
+{% endblock %}

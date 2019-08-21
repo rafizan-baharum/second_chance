@@ -1,0 +1,55 @@
+{% extends "portfolio/student_base.html" %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Personal</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Name</div>
+                                    <div class="col-md-9">{{ student.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">NRIC</div>
+                                    <div class="col-md-9">{{ student.nric_no }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Birthdate</div>
+                                    <div class="col-md-9">{{ student.birth_date }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Address</div>
+                                    <div class="col-md-9">
+                                        {{ student.address1 }} <br/>
+                                        {{ student.address2 }} <br/>
+                                        {{ student.address3 }} <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Gender</div>
+                                    <div class="col-md-9">{{ student.gender }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Race</div>
+                                    <div class="col-md-9">{{ student.race }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Religion</div>
+                                    <div class="col-md-9">{{ student.religion }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block main-content %}
+    <div class="row m-t-25">
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c1">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-account-o"></i>
+                        </div>
+                        <div class="text">
+                            <h2>68</h2>
+                            <span>student registered</span>
+                        </div>
+                    </div>
+                    <div class="overview-chart">
+                        <canvas id="widgetChart1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c2">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-airplane"></i>
+                        </div>
+                        <div class="text">
+                            <h2>124</h2>
+                            <span>student graduated</span>
+                        </div>
+                    </div>
+                    <div class="overview-chart">
+                        <canvas id="widgetChart2"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c3">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-alarm"></i>
+                        </div>
+                        <div class="text">
+                            <h2>12</h2>
+                            <span>student dropped out</span>
+                        </div>
+                    </div>
+                    <div class="overview-chart">
+                        <canvas id="widgetChart3"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="overview-item overview-item--c4">
+                <div class="overview__inner">
+                    <div class="overview-box clearfix">
+                        <div class="icon">
+                            <i class="zmdi zmdi-refresh"></i>
+                        </div>
+                        <div class="text">
+                            <h2>122</h2>
+                            <span>student referrred</span>
+                        </div>
+                    </div>
+                    <div class="overview-chart">
+                        <canvas id="widgetChart4"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Student List</h2>
+            </div>
+        </div>
+    </div>
+    <div class="row m-t-25">
+        <div class="col-lg-9">
+            <div class="table-responsive m-b-40">
+                <table class="table table-borderless table-striped table-data3">
+                    <thead>
+                    <tr>
+                        <th>NRIC</th>
+                        <th>NAME</th>
+                        <th>REGISTERED</th>
+                    </tr>
+                    </thead>
+
+                    {% for student in students %}
+                        <tr class='clickable-row' data-href='{{ student.get_absolute_url }}'>
+                            <td>
+                                {{ student.nric_no }}
+                            </td>
+                            <td>
+                                {{ student.name }}
+                            </td>
+                            <td>
+                                {{ student.registered_date }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Menus</h4>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="/portfolio/students/create">Register Student</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/portfolio/students/list">Student List</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+
+        function addStudent() {
+            window.location.assign('/registration/students/create');
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,62 @@
+[
+  {
+    "model": "portfolio.state",
+    "pk": 1,
+    "fields": {
+      "code": "WP",
+      "name": "Wilayah Persekutuan",
+      "created_date": "2019-08-19T13:29:32.522Z",
+      "modified_date": "2019-08-19T13:29:32.522Z"
+    }
+  },
+  {
+    "model": "portfolio.city",
+    "pk": 1,
+    "fields": {
+      "code": "CH",
+      "name": "Cheras",
+      "state": 1,
+      "created_date": "2019-08-19T13:29:47.428Z",
+      "modified_date": "2019-08-19T13:29:47.428Z"
+    }
+  },
+  {
+    "model": "portfolio.school",
+    "pk": 1,
+    "fields": {
+      "code": "XXX",
+      "name": "ABC",
+      "created_date": "2019-08-19T10:51:34.491Z",
+      "modified_date": "2019-08-19T10:51:34.491Z"
+    }
+  },
+  {
+    "model": "portfolio.student",
+    "pk": 1,
+    "fields": {
+      "nric_no": "123123",
+      "name": "Test",
+      "address1": "123",
+      "address2": "wwqe",
+      "address3": "ae",
+      "registered_date": "2019-08-19T13:30:40Z",
+      "birth_date": "2019-08-19",
+      "gender": "MALE",
+      "race": "MALAY",
+      "religion": "ISLAM",
+      "school": 1,
+      "father_nric_no": "asd",
+      "father_name": "asd",
+      "father_race": "MALAY",
+      "father_religion": "ISLAM",
+      "father_income": "1233.00",
+      "mother_nric_no": "asd",
+      "mother_name": "asd",
+      "mother_race": "MALAY",
+      "mother_religion": "ISLAM",
+      "mother_income": "1213.00",
+      "created_date": "2019-08-19T13:31:07.393Z",
+      "modified_date": "2019-08-19T13:31:07.393Z"
+    }
+  }
+]

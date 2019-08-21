@@ -1,0 +1,58 @@
+{% extends "portfolio/student_base.html" %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+{#                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">#}
+{#                            <i class="zmdi zmdi-plus"></i>add item#}
+{#                        </button>#}
+                        <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                            <select class="js-select2" name="type">
+                                <option selected="selected">Export</option>
+                                <option value="">PDF</option>
+                                <option value="">Excel</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                {% for session in sessions %}
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Session {{ session.pk }}</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-md-3">Counselor</div>
+                                        <div class="col-md-9">{{ session.counselor.name }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">Venue</div>
+                                        <div class="col-md-9">{{ session.venue }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">Remarks</div>
+                                        <div class="col-md-9">{{ session.remarks }}</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">Date</div>
+                                        <div class="col-md-9">{{ session.counseled_date }}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

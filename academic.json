@@ -1,0 +1,72 @@
+[
+  {
+    "model": "academic.semester",
+    "pk": 1,
+    "fields": {
+      "code": "1-2019",
+      "name": "Semester 1 2019",
+      "created_date": "2019-08-19T14:27:54.805Z",
+      "modified_date": "2019-08-19T14:27:54.805Z"
+    }
+  },
+  {
+    "model": "academic.semester",
+    "pk": 2,
+    "fields": {
+      "code": "2-2019",
+      "name": "Semester 2 2019",
+      "created_date": "2019-08-19T14:27:54.805Z",
+      "modified_date": "2019-08-19T14:27:54.805Z"
+    }
+  },
+  {
+    "model": "academic.semester",
+    "pk": 3,
+    "fields": {
+      "code": "3-2019",
+      "name": "Semester 3 2019",
+      "created_date": "2019-08-19T14:27:54.805Z",
+      "modified_date": "2019-08-19T14:27:54.805Z"
+    }
+  },
+  {
+    "model": "academic.subject",
+    "pk": 1,
+    "fields": {
+      "code": "BM",
+      "name": "Bahasa Malaysia",
+      "created_date": "2019-08-19T12:53:57.175Z",
+      "modified_date": "2019-08-19T12:53:57.175Z"
+    }
+  },
+  {
+    "model": "academic.subject",
+    "pk": 2,
+    "fields": {
+      "code": "BI",
+      "name": "Bahasa Inggeris",
+      "created_date": "2019-08-19T12:53:57.291Z",
+      "modified_date": "2019-08-19T12:53:57.292Z"
+    }
+  },
+  {
+    "model": "academic.subject",
+    "pk": 3,
+    "fields": {
+      "code": "MA",
+      "name": "Matematik",
+      "created_date": "2019-08-19T12:53:58.605Z",
+      "modified_date": "2019-08-19T12:53:58.605Z"
+    }
+  },
+  {
+    "model": "academic.subject",
+    "pk": 4,
+    "fields": {
+      "code": "BO",
+      "name": "BIOLOGI",
+      "created_date": "2019-08-19T12:53:58.605Z",
+      "modified_date": "2019-08-19T12:53:58.605Z"
+    }
+  }
+]

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block main-content %}
+
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Create Grant</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-t-25">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-horizontal" method="post">
+                        {% csrf_token %}
+                    <form class="form-horizontal" method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.donor|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.amount|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row m-t-25">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.student|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.purpose|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row m-t-25">
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.remarks|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.approved_date|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.disbursed_date|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+{% endblock %}

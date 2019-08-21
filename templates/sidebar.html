@@ -1,0 +1,44 @@
+{% load static %}
+
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="#">
+            <img src="{% static 'images/icon/logo.png' %}" alt="Cool Admin"/>
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li class="active has-sub">
+                    <a class="js-arrow" href="#">
+                        <i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li>
+                    <a href="/portfolio">
+                        <i class="fas fa-chart-bar"></i>Portfolio
+                    </a>
+                </li>
+                <li>
+                    <a href="/academic">
+                        <i class="fas fa-chart-bar"></i>Academic
+                    </a>
+                </li>
+                <li>
+                    <a href="/counseling">
+                        <i class="fas fa-chart-bar"></i>Counseling
+                    </a>
+                </li>
+                <li>
+                    <a href="/financialaid">
+                        <i class="fas fa-chart-bar"></i>Financial Aid
+                    </a>
+                </li>
+                <li>
+                    <a href="/configuration">
+                        <i class="fas fa-chart-bar"></i>Configuration
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>
