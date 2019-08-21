@@ -1,0 +1,26 @@
+#!/bin/bash
+
+NAME="second_chance"
+DIR=/home/second_chance/project/second_chance
+USER=second_chance
+GROUP=second_chance
+WORKERS=3
+BIND=unix:/home/second_chance/run/gunicorn.sock
+DJANGO_SETTINGS_MODULE=second_chance.settings
+DJANGO_WSGI_MODULE=second_chance.wsgi
+LOG_LEVEL=error
+
+cd $DIR
+source /home/second_chance/bin/activate
+
+export DJANGO_SETTINGS_MODULE=$DJANGO_SETTINGS_MODULE
+export PYTHONPATH=$DIR:$PYTHONPATH
+
+exec /home/second_chance/bin/gunicorn ${DJANGO_WSGI_MODULE}:application \
+  --name $NAME \
+  --workers $WORKERS \
+  --user=$USER \
+  --group=$GROUP \
+  --bind=$BIND \
+  --log-level=$LOG_LEVEL \
+  --log-file=-
