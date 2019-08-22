@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block main-content %}
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Configuration</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-t-25">
+        <div class="col-md-3">
+            <aside class="profile-nav alt">
+                <section class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <a href="/configuration/semesters/list">Semester</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/configuration/subjects/list">Subjects</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/configuration/levels/list">Levels</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/configuration/schools/list">Schools</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/configuration/cities/list">Cities</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="/configuration/states/list">States</a>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+        </div>
+
+        {% block sub-content %}
+        {% endblock %}
+
+    </div>
+{% endblock %}
+
+{% block main-js %}
+{% endblock %}

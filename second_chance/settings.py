@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'financialaid.apps.FinancialaidConfig',
     'counseling.apps.CounselingConfig',
     'portfolio.apps.PortfolioConfig',
+    'configuration.apps.ConfigurationConfig',
     'crispy_forms',
 ]
 

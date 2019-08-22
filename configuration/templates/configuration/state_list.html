@@ -1,0 +1,96 @@
+{% extends "configuration/configuration_base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="overview-wrap">
+                    <h2 class="title-1">State Configuration</h2>
+                    <button class="au-btn au-btn-icon au-btn--blue"
+                            data-toggle="modal" data-target="#stateEditorModal">
+                        <i class="zmdi zmdi-plus"></i>Add
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-t-25">
+            <div class="col-md-12">
+                <div class="table-responsive m-b-40">
+                    <table class="table table-borderless table-striped table-data3">
+                        <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>CODE</th>
+                        </tr>
+                        </thead>
+
+                        {% for state in states %}
+                            <tr class='clickable-row'>
+                                <td>
+                                    {{ state.code }}
+                                </td>
+                                <td>
+                                    {{ state.name }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="stateEditorModal" tabindex="-1" role="dialog"
+         aria-labelledby="stateEditorModalLabel"
+         aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="stateEditorModalLabel">State Editor</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="stateForm" class="form-horizontal" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="parent" value="{{ resultbook.pk }}"/>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ state_form.code|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ state_form.name|as_crispy_field }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="stateFormButton">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        $(function () {
+            $('#stateFormButton').click(function (e) {
+                e.preventDefault();
+                $.post(
+                    '/configuration/states/create/',
+                    $('#stateForm').serialize(),
+                    function (data, status, xhr) {
+                        $("#stateEditorModal").modal('hide');
+                        location.reload();
+                    });
+            });
+        });
+    </script>
+{% endblock %}

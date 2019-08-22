@@ -1,6 +1,18 @@
 from django import forms
 
-from .models import Student
+from .models import Student, City, State
+
+
+class CityModelForm(forms.ModelForm):
+    class Meta:
+        model = City
+        fields = ['code', 'name']
+
+
+class StateModelForm(forms.ModelForm):
+    class Meta:
+        model = State
+        fields = ['code', 'name']
 
 
 class StudentModelForm(forms.ModelForm):
