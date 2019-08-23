@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
@@ -12,10 +13,16 @@ def index_page(request):
 
 
 def student_list_view(request):
-    # list out objects 
-    # could be search
     qs = Student.objects.all().registered()  # queryset -> list of python object
-    context = {'students': qs}
+    page = request.GET.get('page', 1)
+    paginator = Paginator(qs, 10)
+    try:
+        students = paginator.page(page)
+    except PageNotAnInteger:
+        students = paginator.page(1)
+    except EmptyPage:
+        students = paginator.page(paginator.num_pages)
+    context = {'students': students}
     return render(request, 'portfolio/student_list.html', context)
 
 
@@ -37,11 +44,13 @@ def student_academic_view(request, nric_no):
     context = {'student': student, 'resultbooks': resultbooks}
     return render(request, 'portfolio/student_academic.html', context)
 
+
 def student_counseling_view(request, nric_no):
     student = get_object_or_404(Student, nric_no=nric_no)
     sessions = student.sessions.all
     context = {'student': student, 'sessions': sessions}
     return render(request, 'portfolio/student_counseling.html', context)
+
 
 def student_financialaid_view(request, nric_no):
     student = get_object_or_404(Student, nric_no=nric_no)

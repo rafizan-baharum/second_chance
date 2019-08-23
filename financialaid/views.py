@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -13,7 +14,15 @@ def index_page(request):
 
 def grant_list_view(request):
     qs = Grant.objects.all()
-    context = {'grants': qs}
+    page = request.GET.get('page', 1)
+    paginator = Paginator(qs, 10)
+    try:
+        grants = paginator.page(page)
+    except PageNotAnInteger:
+        grants = paginator.page(1)
+    except EmptyPage:
+        grants = paginator.page(paginator.num_pages)
+    context = {'grants': grants}
     return render(request, 'financialaid/grant_list.html', context)
 
 

@@ -4,7 +4,7 @@ from configuration.views import index_page, semester_list_view, semester_create_
     subject_create_modal, level_list_view, level_create_modal, school_list_view, school_create_modal, city_list_view, \
     city_create_modal, state_list_view, state_create_modal
 
-urlpatterns = {
+urlpatterns = [
     path('', index_page),
     path('semesters/', semester_list_view),
     path('semesters/list/', semester_list_view),
@@ -24,4 +24,4 @@ urlpatterns = {
     path('states/', state_list_view),
     path('states/list/', state_list_view),
     path('states/create/', state_create_modal),
-}
+]

@@ -1,4 +1,4 @@
-    {% extends "base.html" %}
+{% extends "base.html" %}
 {% block main-content %}
     <div class="row">
         <div class="col-md-12">
@@ -41,6 +41,36 @@
                         </tr>
                     {% endfor %}
                 </table>
+
+                {% if grants.has_other_pages %}
+                    <nav>
+                        <ul class="pagination">
+                            {% if grants.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ grants.previous_page_number }}">&laquo;</a>
+                                </li>
+                                {#                            {% else %}#}
+                                {#                                <li class="page-item"><span>&laquo;</span></li>#}
+                            {% endif %}
+                            {% for i in grants.paginator.page_range %}
+                                {% if grants.number == i %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if grants.has_next %}
+                                <li class="page-item"><a class="page-link"
+                                                         href="?page={{ grants.next_page_number }}">&raquo;</a>
+                                </li>
+                                {#                            {% else %}#}
+                                {#                                <li class="page-item"><span>&raquo;</span></li>#}
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
             </div>
         </div>
     </div>

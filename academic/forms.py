@@ -22,7 +22,7 @@ class LevelModelForm(forms.ModelForm):
 class SchoolModelForm(forms.ModelForm):
     class Meta:
         model = School
-        fields = ['code', 'name']
+        fields = ['code', 'name', 'contact_person']
 
 class ResultbookModelForm(forms.ModelForm):
     class Meta:

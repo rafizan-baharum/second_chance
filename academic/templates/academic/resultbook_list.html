@@ -45,6 +45,36 @@
                         </tr>
                     {% endfor %}
                 </table>
+
+                {% if resultbooks.has_other_pages %}
+                    <nav>
+                        <ul class="pagination">
+                            {% if resultbooks.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ resultbooks.previous_page_number }}">&laquo;</a>
+                                </li>
+{#                            {% else %}#}
+{#                                <li class="page-item"><span>&laquo;</span></li>#}
+                            {% endif %}
+                            {% for i in resultbooks.paginator.page_range %}
+                                {% if resultbooks.number == i %}
+                                    <li class="page-item active">
+                                        <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                    </li>
+                                {% else %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if resultbooks.has_next %}
+                                <li class="page-item"><a class="page-link"
+                                                         href="?page={{ resultbooks.next_page_number }}">&raquo;</a>
+                                </li>
+{#                            {% else %}#}
+{#                                <li class="page-item"><span>&raquo;</span></li>#}
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
             </div>
         </div>
     </div>

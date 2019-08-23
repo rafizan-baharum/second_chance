@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 # Create your views here.
 from academic.forms import ResultbookModelForm, ResultModelForm
@@ -14,7 +15,16 @@ def index_page(request):
 
 def resultbook_list_view(request):
     qs = Resultbook.objects.all()
-    context = {'resultbooks': qs}
+    page = request.GET.get('page', 1)
+    paginator = Paginator(qs, 10)
+    try:
+        resultbooks = paginator.page(page)
+    except PageNotAnInteger:
+        resultbooks = paginator.page(1)
+    except EmptyPage:
+        resultbooks = paginator.page(paginator.num_pages)
+
+    context = {'resultbooks': resultbooks}
     return render(request, 'academic/resultbook_list.html', context)
 
 
@@ -36,15 +46,15 @@ def resultbook_detail_view(request, pk):
 
 def resultbook_create_view(request):
     form = ResultbookModelForm(request.POST or None)
-    print(request)
+    context = {'form': form}
 
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-        form = ResultbookModelForm()
-    context = {'form': form}
-    return render(request, 'academic/resultbook_create.html', context)
+        return redirect('academic:resultbook_list')
+    else:
+        return render(request, 'academic/resultbook_create.html', context)
 
 
 def result_create_modal(request, pk):

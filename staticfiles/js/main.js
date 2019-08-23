@@ -1258,15 +1258,15 @@
     $(".animsition").animsition({
       inClass: 'fade-in',
       outClass: 'fade-out',
-      inDuration: 900,
-      outDuration: 900,
+      inDuration: 100,
+      outDuration: 100,
       linkElement: 'a:not([target="_blank"]):not([href^="#"]):not([class^="chosen-single"])',
-      loading: true,
+      loading: false,
       loadingParentElement: 'html',
       loadingClass: 'page-loader',
       loadingInner: '<div class="page-loader__spin"></div>',
       timeout: false,
-      timeoutCountdown: 2000,
+      timeoutCountdown: 1000,
       onLoadEvent: true,
       browser: ['animation-duration', '-webkit-animation-duration'],
       overlay: false,
@@ -1276,8 +1276,8 @@
         window.location.href = url;
       }
     });
-  
-  
+
+
   })(jQuery);
 (function ($) {
   // USE STRICT

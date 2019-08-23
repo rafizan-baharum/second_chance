@@ -154,6 +154,7 @@ class School(models.Model):  # Student_set -> queryset
     # id = models.IntegerField() # pk
     code = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=120)
+    contact_person = models.CharField(max_length=120)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 

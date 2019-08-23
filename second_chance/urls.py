@@ -21,9 +21,9 @@ from second_chance.views import home_page
 urlpatterns = [
     path('', home_page),
     path('admin/', admin.site.urls),
-    path('portfolio/', include('portfolio.urls')),
-    path('academic/', include('academic.urls')),
-    path('counseling/', include('counseling.urls')),
-    path('financialaid/', include('financialaid.urls')),
-    path('configuration/', include('configuration.urls')),
+    path('portfolio/', include(('portfolio.urls', 'portfolio'), namespace='portfolio')),
+    path('academic/', include(('academic.urls', 'academic'), namespace='academic')),
+    path('counseling/', include(('counseling.urls', 'counseling'), namespace='counseling')),
+    path('financialaid/', include(('financialaid.urls', 'financialaid'), namespace='financialaid')),
+    path('configuration/', include(('configuration.urls', 'configuration'), namespace='configuration')),
 ]

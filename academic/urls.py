@@ -5,11 +5,9 @@ from academic.views import index_page, resultbook_create_view, resultbook_list_v
 
 urlpatterns = [
     path('', index_page),
-    path('resultbooks/create', resultbook_create_view),
-    path('resultbooks/', resultbook_list_view),
-    path('resultbooks/list/', resultbook_list_view),
+    path('resultbooks/create', resultbook_create_view,name="resultbook_create"),
+    path('resultbooks/', resultbook_list_view, ),
+    path('resultbooks/list/', resultbook_list_view, name="resultbook_list"),
     path('resultbooks/<str:pk>/', resultbook_detail_view),
     path('resultbooks/<str:pk>/results/create', result_create_modal),
-    # path('resultbooks/<str:pk>/summary', resultbook_summary_view),
-    # path('resultbooks/<str:pk>/detail', resultbook_detail_view),
 ]
