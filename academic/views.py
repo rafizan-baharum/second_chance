@@ -6,17 +6,23 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from academic.forms import ResultbookModelForm, ResultModelForm
 from academic.models import Resultbook
 
+PER_PAGE = 10
+
 
 def index_page(request):
+    print('helloworld')
     qs = Resultbook.objects.all()
     context = {'resultbooks': qs}
     return render(request, "academic/index.html", context)
 
 
+
 def resultbook_list_view(request):
+    Resultbook.objects.filter()
     qs = Resultbook.objects.all()
     page = request.GET.get('page', 1)
-    paginator = Paginator(qs, 10)
+    paginator = Paginator(qs, PER_PAGE)
+
     try:
         resultbooks = paginator.page(page)
     except PageNotAnInteger:

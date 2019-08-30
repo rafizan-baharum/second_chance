@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 from financialaid.forms import GrantModelForm
@@ -54,5 +54,6 @@ def grant_create_view(request):
         obj.user = request.user
         obj.save()
         form = GrantModelForm()
+        return redirect('/financialaid/grants/list/')
     context = {'form': form}
     return render(request, 'financialaid/grant_create.html', context)

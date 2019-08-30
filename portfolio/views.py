@@ -5,15 +5,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from portfolio.forms import StudentModelForm
 from portfolio.models import Student
 
+PER_PAGE = 10
+
 
 def index_page(request):
-    qs = Student.objects.all().registered()  # queryset -> list of python object
+    qs = Student.objects.all().registered()
     context = {'students': qs}
     return render(request, "portfolio/index.html", context)
 
 
 def student_list_view(request):
-    qs = Student.objects.all().registered()  # queryset -> list of python object
+    qs = Student.objects.all().registered()
     page = request.GET.get('page', 1)
     paginator = Paginator(qs, 10)
     try:
@@ -62,6 +64,7 @@ def student_financialaid_view(request, nric_no):
 def student_create_view(request):
     form = StudentModelForm(request.POST or None)
     context = {'form': form}
+    print(form.errors)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user

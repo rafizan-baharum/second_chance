@@ -8,7 +8,7 @@ urlpatterns = [
     path('students/', student_list_view),
     path('students/list/', student_list_view),
     path('students/create', student_create_view),
-    path('students/<str:nric_no>/', student_detail_view),
+    path('students/<str:nric_no>/', student_summary_view),
     path('students/<str:nric_no>/detail', student_detail_view),
     path('students/<str:nric_no>/summary', student_summary_view),
     path('students/<str:nric_no>/academic', student_academic_view),
