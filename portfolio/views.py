@@ -62,9 +62,8 @@ def student_financialaid_view(request, nric_no):
 
 
 def student_create_view(request):
-    form = StudentModelForm(request.POST or None)
+    form = StudentModelForm(request.POST or None, request.FILES or None)
     context = {'form': form}
-    print(form.errors)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user

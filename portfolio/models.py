@@ -208,6 +208,7 @@ class StudentManager(models.Manager):
 class Student(models.Model):
     # id = models.IntegerField() # pk
     # creator    = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
+    image   = models.ImageField(upload_to='images/', blank=True, null=True, default = 'images/no-img.jpg')
     nric_no = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=120)
     nick_name = models.CharField(max_length=60, blank=False)

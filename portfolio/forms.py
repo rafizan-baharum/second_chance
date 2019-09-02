@@ -18,7 +18,7 @@ class StateModelForm(forms.ModelForm):
 class StudentModelForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ['nric_no', 'name', 'nick_name', 'gender', 'religion', 'race',
+        fields = ['image', 'nric_no', 'name', 'nick_name', 'gender', 'religion', 'race',
                   'address1', 'address2', 'address3', 'city', 'state',
                   'school',
                   'bank', 'bank_account_no',

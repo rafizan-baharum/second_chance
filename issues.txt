@@ -1,0 +1,229 @@
+pip freeze > requirements.txt
+# =================================================================================================
+# Django
+# =================================================================================================
+virtualenv -p /path/to/python3 django_env
+-- activate virtenv
+pip install Django
+django-admin startproject sinar_harian
+python -m django --version
+
+https://docs.djangoproject.com/en/2.2/ref/django-admin/
+
+-- requirement for postgres
+-- change database settings in settings.py
+pip install Psycopg2=2.7.5
+
+python manage.py runserver
+
+
+# =================================================================================================
+# sql alchemy stuff
+# =================================================================================================
+
+pip install sqlalchemy
+
+https://github.com/achiku/sample-django-sqlalchemy/blob/master/apps/sale/models.py
+https://github.com/auvipy/django-sqlalchemy
+https://docs.sqlalchemy.org/en/13
+
+pip install django-sorcery
+python manage.py sorcery revision -m "Add article models" articles
+python manage.py sorcery upgrade --sql articles
+
+https://stackoverflow.com/questions/21328599/why-isnt-sqlalchemy-creating-serial-columns
+https://stackoverflow.com/questions/10059345/sqlalchemy-unique-across-multiple-columns
+
+# =================================================================================================
+# postgres sequence issue
+# =================================================================================================
+
+https://coderwall.com/p/ajdngg/adding-a-postgresql-sequence-with-alembic
+## add these line
+op.execute(CreateSequence(Sequence('sq_cng_cmnt')))
+
+# =================================================================================================
+# show url
+# =================================================================================================
+https://stackoverflow.com/questions/1275486/django-how-can-i-see-a-list-of-urlpatterns
+pip install django-extensions
+
+
+# =================================================================================================
+# beautiful soup
+# =================================================================================================
+
+pip install requests
+pip install beautifulsoup4
+
+# =================================================================================================
+# bootstrap 4
+# =================================================================================================
+https://docs.djangoproject.com/en/2.2/ref/templates/language/
+https://pypi.org/project/django-bootstrap4/
+
+# =================================================================================================
+# static files
+# =================================================================================================
+
+
+https://docs.djangoproject.com/en/2.2/howto/static-files/
+https://www.youtube.com/watch?v=Pkrm2nucaKA
+https://docs.djangoproject.com/en/2.2/ref/settings/#std:setting-STATICFILES_DIRS
+http://rahmonov.me/posts/django-static-files/
+https://stackoverflow.com/questions/9824359/django-static-files
+https://stackoverflow.com/questions/30430131/get-the-file-path-for-a-static-file-in-django-code
+https://stackoverflow.com/questions/7574759/django-cant-get-static-css-files-to-load
+https://stackoverflow.com/questions/28879731/django-1-6-how-to-access-static-files-in-view
+
+# =================================================================================================
+# facebook + beautiful soup
+# =================================================================================================
+
+https://stackoverflow.com/questions/40441335/parse-public-facebook-posts-with-beautifulsoup-python
+
+
+# =================================================================================================
+# sqlalchemy + enum
+# =================================================================================================
+https://stackoverflow.com/questions/36136112/defining-sqlalchemy-enum-column-with-python-enum-raises-valueerror-not-a-valid
+
+https://stackoverflow.com/questions/32311366/alembic-util-command-error-cant-find-identifier
+
+python manage.py sorcery revision -m "Add enum" articles
+python manage.py sorcery upgrade --sql articles
+python manage.py sorcery upgrade
+
+
+# =================================================================================================
+# script + django manage.py
+# =================================================================================================
+https://stackoverflow.com/questions/16853649/how-to-execute-a-python-script-from-the-django-shell
+
+# =================================================================================================
+# taxonomy tree
+# =================================================================================================
+    python manage.py startapp taxonomies
+
+	op.execute(CreateSequence(Sequence('sq_cng_txmy')))
+
+
+	https://stackoverflow.com/questions/4896104/creating-a-tree-from-self-referential-tables-in-sqlalchemy
+
+# =================================================================================================
+# check settings
+# =================================================================================================
+
+	https://stackoverflow.com/questions/6369697/how-do-i-print-out-the-contents-of-my-settings-in-a-django-shell
+
+
+# =================================================================================================
+# github
+# =================================================================================================
+
+https://kbroman.org/github_tutorial/pages/init.html
+https://stackoverflow.com/questions/1221840/remote-origin-already-exists-on-git-push-to-a-new-repository
+
+# =================================================================================================
+# transient attribute + sqlalchemy
+# =================================================================================================
+
+graphdb + python
+https://neo4j.com/blog/contributor/nicole-white/
+https://www.youtube.com/watch?v=Nkd6Ei-xuxI
+https://neo4j.com/download-center/#community
+
+
+
+# =================================================================================================
+# django stuff
+# =================================================================================================
+
+https://stackoverflow.com/questions/43179875/when-to-use-django-get-absolute-url-method
+https://realpython.com/python-f-strings/
+https://www.geeksforgeeks.org/args-kwargs-python/
+https://stackoverflow.com/questions/13503645/what-is-permalink-and-get-absolute-url-in-django
+
+# =================================================================================================
+# form
+# =================================================================================================
+
+https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html
+https://github.com/django-crispy-forms/django-crispy-forms
+https://simpleisbetterthancomplex.com/tutorial/2018/11/28/advanced-form-rendering-with-django-crispy-forms.html
+https://stackoverflow.com/questions/31548373/django-1-8-django-crispy-forms-is-there-a-simple-easy-way-of-implementing-a
+
+
+# =================================================================================================
+# project layout
+# =================================================================================================
+https://stackoverflow.com/questions/19350785/what-s-the-difference-between-a-project-and-an-app-in-django-world
+https://www.revsys.com/tidbits/recommended-django-project-layout/
+https://timmyomahony.com/blog/updated-django-project-structure-or-folder-layout/
+
+# =================================================================================================
+# default options
+# =================================================================================================
+
+https://stackoverflow.com/questions/2029295/django-datefield-default-options
+
+# =================================================================================================
+# fixture/seed
+# =================================================================================================
+
+https://docs.djangoproject.com/en/2.2/howto/initial-data/
+https://coderwall.com/p/mvsoyg/django-dumpdata-and-loaddata
+https://books.agiliq.com/projects/django-admin-cookbook/en/latest/fk_display.html
+https://stackoverflow.com/questions/9336463/django-xxxxxx-object-display-customization-in-admin-action-sidebar
+
+# =================================================================================================
+# UI
+# =================================================================================================
+
+https://stackoverflow.com/questions/16356289/how-to-show-datepicker-calendar-on-datefield/16356818
+
+
+
+# =================================================================================================
+# ORM mapping
+# =================================================================================================
+https://docs.djangoproject.com/en/dev/ref/models/fields/#foreignkey
+https://stackoverflow.com/questions/2642613/what-is-related-name-used-for-in-django
+
+
+# =================================================================================================
+# data dumpdata
+# =================================================================================================
+https://stackoverflow.com/questions/1113096/django-dump-data-for-a-single-model
+
+# =================================================================================================
+# deployment
+# =================================================================================================
+https://simpleisbetterthancomplex.com/tutorial/2016/10/14/how-to-deploy-to-digital-ocean.html
+https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604
+https://www.dbrnd.com/2016/08/postgresql-password-authentication-failed-for-user-postgres-in-ubuntu-reset-forgot-postgres-super-user-password/
+https://help.dreamhost.com/hc/en-us/articles/115000695551-Installing-and-using-virtualenv-with-Python-3
+https://stackoverflow.com/questions/7225900/how-to-install-packages-using-pip-according-to-the-requirements-txt-file-from-a
+https://stackoverflow.com/questions/8687927/difference-between-static-static-url-and-static-root-on-django
+https://gunicorn.org/
+
+# =================================================================================================
+#pdf
+# =================================================================================================
+https://docs.djangoproject.com/en/2.2/howto/outputting-pdf/
+https://dev.to/djangotricks/how-to-create-pdf-documents-with-django-in-2019-5gb9
+
+# =================================================================================================
+#django orm query
+# =================================================================================================
+https://stackoverflow.com/questions/9834038/django-order-by-query-set-ascending-and-descending
+
+
+
+modal
+https://stackoverflow.com/questions/47465236/bootstrap-4-modal-hide-not-working
+https://stackoverflow.com/questions/46507805/how-to-display-django-form-in-modal-window
+https://stackoverflow.com/questions/9051551/is-it-possible-to-return-an-httpresponse-in-django-with-text-a-json-object
+https://www.abidibo.net/blog/2014/05/26/how-implement-modal-popup-django-forms-bootstrap/
+https://stackoverflow.com/questions/53252429/how-to-pass-data-to-a-modal-in-django-with-ajax
+https://wsvincent.com/django-image-uploads/
