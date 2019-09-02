@@ -6,7 +6,7 @@ from .models import Student, City, State
 class CityModelForm(forms.ModelForm):
     class Meta:
         model = City
-        fields = ['code', 'name']
+        fields = ['code', 'name', 'state']
 
 
 class StateModelForm(forms.ModelForm):

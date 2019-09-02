@@ -9,20 +9,24 @@ class SemesterModelForm(forms.ModelForm):
         model = Semester
         fields = ['code', 'name']
 
+
 class SubjectModelForm(forms.ModelForm):
     class Meta:
         model = Subject
         fields = ['code', 'name']
+
 
 class LevelModelForm(forms.ModelForm):
     class Meta:
         model = Level
         fields = ['code', 'name']
 
+
 class SchoolModelForm(forms.ModelForm):
     class Meta:
         model = School
-        fields = ['code', 'name', 'contact_person']
+        fields = ['code', 'name']
+
 
 class ResultbookModelForm(forms.ModelForm):
     class Meta:
