@@ -7,7 +7,7 @@ from financialaid.models import Grant
 
 
 def index_page(request):
-    qs = Grant.objects.all()
+    qs = Grant.objects.order_by('-created_date')[:10]
     context = {'grants': qs}
     return render(request, "financialaid/index.html", context)
 

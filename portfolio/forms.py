@@ -24,11 +24,9 @@ class StudentModelForm(forms.ModelForm):
                   'bank', 'bank_account_no',
                   'father_name', 'father_nric_no', 'father_race', 'father_religion', 'father_income',
                   'mother_name', 'mother_nric_no', 'mother_race', 'mother_religion', 'mother_income',
-                  'birth_date',
-                  'registered_date']
+                  'birth_date']
         widgets = {
             'birth_date': forms.DateInput(attrs={'type': 'date'}),
-            'registered_date': forms.DateInput(attrs={'type': 'date'}),
         }
 
     def clean_nric_no(self, *args, **kwargs):

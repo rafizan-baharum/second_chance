@@ -32,11 +32,12 @@
                                 {{ student.name }}
                             </td>
                             <td>
-                                {{ student.registered_date }}
+                                {{ student.created_date }}
                             </td>
                         </tr>
                     {% endfor %}
                 </table>
+
                 {% if students.has_other_pages %}
                     <nav>
                         <ul class="pagination">
@@ -68,6 +69,7 @@
                         </ul>
                     </nav>
                 {% endif %}
+
             </div>
         </div>
     </div>

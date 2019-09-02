@@ -53,8 +53,8 @@
                                 <li class="page-item">
                                     <a class="page-link" href="?page={{ resultbooks.previous_page_number }}">&laquo;</a>
                                 </li>
-{#                            {% else %}#}
-{#                                <li class="page-item"><span>&laquo;</span></li>#}
+                                {#                            {% else %}#}
+                                {#                                <li class="page-item"><span>&laquo;</span></li>#}
                             {% endif %}
                             {% for i in resultbooks.paginator.page_range %}
                                 {% if resultbooks.number == i %}
@@ -62,19 +62,21 @@
                                         <a class="page-link" href="?page={{ i }}">{{ i }}</a>
                                     </li>
                                 {% else %}
-                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                                    <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                                    </li>
                                 {% endif %}
                             {% endfor %}
                             {% if resultbooks.has_next %}
                                 <li class="page-item"><a class="page-link"
                                                          href="?page={{ resultbooks.next_page_number }}">&raquo;</a>
                                 </li>
-{#                            {% else %}#}
-{#                                <li class="page-item"><span>&raquo;</span></li>#}
+                                {#                            {% else %}#}
+                                {#                                <li class="page-item"><span>&raquo;</span></li>#}
                             {% endif %}
                         </ul>
                     </nav>
                 {% endif %}
+
             </div>
         </div>
     </div>

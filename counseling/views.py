@@ -7,7 +7,7 @@ from counseling.models import Session
 
 
 def index_page(request):
-    qs = Session.objects.all()
+    qs = Session.objects.order_by('-created_date')[:10]
     context = {'sessions': qs}
     return render(request, "counseling/index.html", context)
 

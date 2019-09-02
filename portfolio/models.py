@@ -53,7 +53,7 @@ class StateManager(models.Manager):
         return self.get_queryset().search(query)
 
 
-class State(models.Model):  # Student_set -> queryset
+class State(models.Model):
     # id = models.IntegerField() # pk
     code = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=120)
@@ -101,7 +101,7 @@ class CityManager(models.Manager):
         return self.get_queryset().search(query)
 
 
-class City(models.Model):  # Student_set -> queryset
+class City(models.Model):
     # id = models.IntegerField() # pk
     code = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=120)
@@ -150,7 +150,7 @@ class SchoolManager(models.Manager):
         return self.get_queryset().search(query)
 
 
-class School(models.Model):  # Student_set -> queryset
+class School(models.Model):
     # id = models.IntegerField() # pk
     code = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=120)
@@ -206,16 +206,15 @@ class StudentManager(models.Manager):
         return self.get_queryset().registered().search(query)
 
 
-class Student(models.Model):  # Student_set -> queryset
+class Student(models.Model):
     # id = models.IntegerField() # pk
     # creator    = models.ForeignKey(User, default=1, null=True, on_delete=models.SET_NULL)
     nric_no = models.CharField(max_length=20, null=False, blank=False)
     name = models.CharField(max_length=120)
-    nick_name = models.CharField(max_length=60)
-    address1 = models.CharField(max_length=120)
-    address2 = models.CharField(max_length=120)
-    address3 = models.CharField(max_length=120)
-    registered_date = models.DateTimeField(auto_now=False, auto_now_add=False, null=True, blank=True)
+    nick_name = models.CharField(max_length=60, blank=False)
+    address1 = models.CharField(max_length=120, blank=False)
+    address2 = models.CharField(max_length=120, blank=False)
+    address3 = models.CharField(max_length=120, blank=True)
     birth_date = models.DateField(null=False, blank=False)
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES)
     race = models.CharField(max_length=60, choices=RACE_CHOICES)
@@ -244,7 +243,7 @@ class Student(models.Model):  # Student_set -> queryset
     objects = StudentManager()
 
     class Meta:
-        ordering = ['-registered_date', '-modified_date']
+        ordering = ['-modified_date']
         verbose_name_plural = "Students"
 
     def get_absolute_url(self):

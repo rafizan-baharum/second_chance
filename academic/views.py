@@ -11,7 +11,7 @@ PER_PAGE = 10
 
 def index_page(request):
     print('helloworld')
-    qs = Resultbook.objects.all()
+    qs = Resultbook.objects.order_by('-created_date')[:10]
     context = {'resultbooks': qs}
     return render(request, "academic/index.html", context)
 
