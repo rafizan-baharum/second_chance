@@ -31,7 +31,7 @@ class SchoolModelForm(forms.ModelForm):
 class ResultbookModelForm(forms.ModelForm):
     class Meta:
         model = Resultbook
-        fields = ['student', 'semester', 'level', 'school']
+        fields = ['student', 'semester', 'level', 'school', 'cgpa', 'gpa']
 
 
 class ResultModelForm(forms.ModelForm):

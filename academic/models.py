@@ -197,6 +197,7 @@ class Resultbook(models.Model):
     level = models.ForeignKey(Level, null=True, on_delete=models.SET_NULL)
     school = models.ForeignKey(School, null=True, on_delete=models.SET_NULL)
     gpa = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
+    cgpa = models.DecimalField(max_digits=3, decimal_places=2, default=0.00)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 

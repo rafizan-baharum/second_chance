@@ -1,7 +1,10 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Sum
+from django.db.models.functions import TruncYear
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
+from financialaid.models import Grant
 from portfolio.forms import StudentModelForm
 from portfolio.models import Student
 
@@ -56,8 +59,15 @@ def student_counseling_view(request, nric_no):
 
 def student_financialaid_view(request, nric_no):
     student = get_object_or_404(Student, nric_no=nric_no)
+    # sum = Grant.objects.filter(student=student, disbursed_date__year=2019).aggregate(Sum('amount'))
+    # print(sum)
+    # sum = Grant.objects.filter(student=student, disbursed_date__year=2020).aggregate(Sum('amount'))
+    # print(sum)
+    summaryGrants = Grant.objects.filter(student=student).annotate(month=TruncYear('disbursed_date')).values(
+        'disbursed_date').annotate(sum=Sum('amount')).order_by()
+    print(summaryGrants)
     grants = student.grants.all
-    context = {'student': student, 'grants': grants}
+    context = {'student': student, 'summaryGrants': summaryGrants, 'grants': grants}
     return render(request, 'portfolio/student_financialaid.html', context)
 
 

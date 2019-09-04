@@ -3,6 +3,11 @@ pip freeze > requirements.txt
 # Django
 # =================================================================================================
 virtualenv -p /path/to/python3 django_env
+UCq1Asz0OVMGZdUKNwaij23A
+
+virtualenv -p C:\Python\Python36\python.exe my_env
+
+
 -- activate virtenv
 pip install Django
 django-admin startproject sinar_harian
@@ -227,3 +232,5 @@ https://stackoverflow.com/questions/9051551/is-it-possible-to-return-an-httpresp
 https://www.abidibo.net/blog/2014/05/26/how-implement-modal-popup-django-forms-bootstrap/
 https://stackoverflow.com/questions/53252429/how-to-pass-data-to-a-modal-in-django-with-ajax
 https://wsvincent.com/django-image-uploads/
+https://stackoverflow.com/questions/2997433/django-filtering-datetime-field-by-only-the-year-value
+https://stackoverflow.com/questions/8746014/django-group-by-date-day-month-year
