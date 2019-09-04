@@ -2,6 +2,19 @@
 
 {% block sub-content %}
     <div class="col-lg-9">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <button class="au-btn au-btn-icon au-btn--blue au-btn--small" onclick="updateStudent()">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -158,4 +171,12 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        function updateStudent() {
+            window.location.assign('/portfolio/students/{{ student.nric_no }}/update');
+        }
+    </script>
 {% endblock %}

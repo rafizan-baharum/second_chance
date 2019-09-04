@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block main-content %}
+
+    <div class="row ">
+        <div class="col-md-12">
+            <div class="overview-wrap">
+                <h2 class="title-1">Update Student</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="row m-t-25">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.image|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.nric_no|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.name|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.nick_name|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.gender|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.birth_date|as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <div class="form-row m-t-25">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.address1|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.address2|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.address3|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.city|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.state|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.school|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.race|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.religion|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row m-t-25">
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.bank|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-3 mb-0">
+                                {{ form.bank_account_no|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row m-t-25">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.father_nric_no|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.father_name|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.father_race|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.father_religion|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.father_income|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row m-t-25">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mother_nric_no|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mother_name|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mother_race|as_crispy_field }}
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mother_religion|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.mother_income|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+{% endblock %}

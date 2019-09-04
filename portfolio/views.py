@@ -80,3 +80,14 @@ def student_create_view(request):
         obj.save()
         return redirect('/portfolio/students/list/')
     return render(request, 'portfolio/student_create.html', context)
+
+def student_update_view(request, nric_no):
+    student = get_object_or_404(Student, nric_no=nric_no)
+    form = StudentModelForm(request.POST or None, request.FILES or None, instance=student)
+    context = {'form': form}
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+        return redirect('/portfolio/students/list/')
+    return render(request, 'portfolio/student_update.html', context)

@@ -1,7 +1,7 @@
 from django.urls import path
 
 from portfolio.views import index_page, student_detail_view, student_list_view, student_create_view, \
-    student_summary_view, student_academic_view, student_counseling_view, student_financialaid_view
+    student_summary_view, student_academic_view, student_counseling_view, student_financialaid_view, student_update_view
 
 urlpatterns = [
     path('', index_page),
@@ -14,4 +14,5 @@ urlpatterns = [
     path('students/<str:nric_no>/academic', student_academic_view),
     path('students/<str:nric_no>/counseling', student_counseling_view),
     path('students/<str:nric_no>/financialaid', student_financialaid_view),
+    path('students/<str:nric_no>/update', student_update_view),
 ]
