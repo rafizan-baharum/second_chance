@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.db.models import Sum
+from django.db.models import Sum, Q
 from django.db.models.functions import TruncYear
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -29,6 +29,20 @@ def student_list_view(request):
         students = paginator.page(paginator.num_pages)
     context = {'students': students}
     return render(request, 'portfolio/student_list.html', context)
+
+def student_search_view(request):
+    keyword = request.GET.get('keyword', '')
+    qs = Student.objects.filter((Q(name__icontains=keyword)))
+    page = request.GET.get('page', 1)
+    paginator = Paginator(qs, 10)
+    try:
+        students = paginator.page(page)
+    except PageNotAnInteger:
+        students = paginator.page(1)
+    except EmptyPage:
+        students = paginator.page(paginator.num_pages)
+    context = {'students': students, 'keyword': keyword}
+    return render(request, 'portfolio/student_search.html', context)
 
 
 def student_detail_view(request, nric_no):
