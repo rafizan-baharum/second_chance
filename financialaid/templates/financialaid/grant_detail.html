@@ -23,11 +23,11 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-md-3">Disbursed</div>
-                                    <div class="col-md-9">{{ grant.disbursed_date }}</div>
+                                    <div class="col-md-9">{{ grant.disbursed_date|date:"d/m/Y"  }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">Approved</div>
-                                    <div class="col-md-9">{{ grant.approved_date }}</div>
+                                    <div class="col-md-9">{{ grant.approved_date|date:"d/m/Y"  }}</div>
                                 </div>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">Birthdate</div>
-                                    <div class="col-md-9">{{ student.birth_date }}</div>
+                                    <div class="col-md-9">{{ student.birth_date |date:"d/m/Y" }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">Address</div>
@@ -114,10 +114,10 @@
                                 {{ grant.amount }}
                             </td>
                             <td>
-                                {{ grant.approved_date }}
+                                {{ grant.approved_date |date:"d/m/Y" }}
                             </td>
                             <td>
-                                {{ grant.disbursed_date }}
+                                {{ grant.disbursed_date |date:"d/m/Y" }}
                             </td>
                         </tr>
                     {% endfor %}

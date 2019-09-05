@@ -29,7 +29,7 @@
                                 {{ student.name }}
                             </td>
                             <td>
-                                {{ student.created_date }}
+                                {{ student.created_date|date:"d/m/Y"  }}
                             </td>
                         </tr>
                     {% endfor %}

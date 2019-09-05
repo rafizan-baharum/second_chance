@@ -36,7 +36,7 @@
                                 {{ grant.approved_date }}
                             </td>
                             <td>
-                                {{ grant.disbursed_date }}
+                                {{ grant.disbursed_date|date:"d/m/Y"  }}
                             </td>
                         </tr>
                     {% endfor %}

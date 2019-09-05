@@ -86,7 +86,7 @@
                                 {{ student.name }}
                             </td>
                             <td>
-                                {{ student.created_date }}
+                                {{ student.created_date |date:"d/m/Y" }}
                             </td>
                         </tr>
                     {% endfor %}
@@ -104,6 +104,9 @@
                     </li>
                     <li class="list-group-item">
                         <a href="/portfolio/students/list">Student List</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="/portfolio/students/search">Search Student</a>
                     </li>
                 </ul>
             </div>
