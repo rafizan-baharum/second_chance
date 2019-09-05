@@ -234,3 +234,4 @@ https://stackoverflow.com/questions/53252429/how-to-pass-data-to-a-modal-in-djan
 https://wsvincent.com/django-image-uploads/
 https://stackoverflow.com/questions/2997433/django-filtering-datetime-field-by-only-the-year-value
 https://stackoverflow.com/questions/8746014/django-group-by-date-day-month-year
+https://stackoverflow.com/questions/22844845/q-object-has-no-attribute-split-django

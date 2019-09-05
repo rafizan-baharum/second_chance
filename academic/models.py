@@ -49,7 +49,7 @@ class SemesterManager(models.Manager):
 
 class Semester(models.Model):
     # id = models.IntegerField() # pk
-    code = models.CharField(max_length=20, null=False, blank=False)
+    code = models.CharField(max_length=20, null=False, blank=False, unique=True)
     name = models.CharField(max_length=120)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
@@ -96,7 +96,7 @@ class LevelManager(models.Manager):
 
 class Level(models.Model):
     # id = models.IntegerField() # pk
-    code = models.CharField(max_length=20, null=False, blank=False)
+    code = models.CharField(max_length=20, null=False, blank=False,unique=True)
     name = models.CharField(max_length=120)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
@@ -143,7 +143,7 @@ class SubjectManager(models.Manager):
 
 class Subject(models.Model):
     # id = models.IntegerField() # pk
-    code = models.CharField(max_length=20, null=False, blank=False)
+    code = models.CharField(max_length=20, null=False, blank=False, unique=True)
     name = models.CharField(max_length=120)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
