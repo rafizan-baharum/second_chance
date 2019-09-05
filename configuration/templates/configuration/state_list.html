@@ -88,7 +88,12 @@
                     function (data, status, xhr) {
                         $("#stateEditorModal").modal('hide');
                         location.reload();
+                    })
+                    .fail(function (response) {
+                        $("#stateEditorModal").modal('hide');
+                        alert('Error: ' + response.responseText);
                     });
+
             });
         });
     </script>

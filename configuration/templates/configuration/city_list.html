@@ -96,7 +96,12 @@
                     function (data, status, xhr) {
                         $("#cityEditorModal").modal('hide');
                         location.reload();
+                    })
+                    .fail(function (response) {
+                        $("#cityEditorModal").modal('hide');
+                        alert('Error: ' + response.responseText);
                     });
+
             });
         });
     </script>

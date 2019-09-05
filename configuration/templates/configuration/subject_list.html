@@ -89,7 +89,12 @@
                     function (data, status, xhr) {
                         $("#subjectEditorModal").modal('hide');
                         location.reload();
+                    })
+                    .fail(function (response) {
+                        $("#subjectEditorModal").modal('hide');
+                        alert('Error: ' + response.responseText);
                     });
+                ;
             });
         });
     </script>

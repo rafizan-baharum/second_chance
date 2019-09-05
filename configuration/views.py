@@ -25,7 +25,9 @@ def semester_create_modal(request):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return HttpResponse('success')
+    else:
+        return HttpResponse('Error adding semester', status=500)
+    return HttpResponse('Success', status=200)
 
 
 def subject_list_view(request):
@@ -41,7 +43,9 @@ def subject_create_modal(request):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return HttpResponse('success')
+    else:
+        return HttpResponse('Error adding subject', status=500)
+    return HttpResponse('Success', status=200)
 
 
 def level_list_view(request):
@@ -57,7 +61,9 @@ def level_create_modal(request):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return HttpResponse('success')
+    else:
+        return HttpResponse('Error adding subject', status=500)
+    return HttpResponse('Success', status=200)
 
 
 def school_list_view(request):
@@ -73,7 +79,9 @@ def school_create_modal(request):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return HttpResponse('success')
+    else:
+        return HttpResponse('Error adding school', status=500)
+    return HttpResponse('Success', status=200)
 
 
 def city_list_view(request):
@@ -89,7 +97,9 @@ def city_create_modal(request):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return HttpResponse('success')
+    else:
+        return HttpResponse('Error adding city', status=500)
+    return HttpResponse('Success', status=200)
 
 
 def state_list_view(request):
@@ -105,4 +115,6 @@ def state_create_modal(request):
         obj = form.save(commit=False)
         obj.user = request.user
         obj.save()
-    return HttpResponse('success')
+    else:
+        return HttpResponse('Error adding object', status=500)
+    return HttpResponse('Success')

@@ -37,8 +37,8 @@ BANK_CHOICES = (
 class StateQuerySet(models.QuerySet):
     def search(self, query):
         lookup = (
-            Q(nric_no__icontains=query),
-            Q(name__icontains=query)
+                Q(nric_no__icontains=query) |
+                Q(name__icontains=query)
         )
         return self.filter(lookup)
 
@@ -85,7 +85,7 @@ class State(models.Model):
 class CityQuerySet(models.QuerySet):
     def search(self, query):
         lookup = (
-            Q(nric_no__icontains=query),
+            Q(nric_no__icontains=query)|
             Q(name__icontains=query)
         )
         return self.filter(lookup)
@@ -134,7 +134,7 @@ class City(models.Model):
 class SchoolQuerySet(models.QuerySet):
     def search(self, query):
         lookup = (
-            Q(nric_no__icontains=query),
+            Q(nric_no__icontains=query)|
             Q(name__icontains=query)
         )
         return self.filter(lookup)

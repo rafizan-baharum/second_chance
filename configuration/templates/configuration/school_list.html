@@ -89,7 +89,12 @@
                     function (data, status, xhr) {
                         $("#schoolEditorModal").modal('hide');
                         location.reload();
+                    })
+                    .fail(function (response) {
+                        $("#schoolEditorModal").modal('hide');
+                        alert('Error: ' + response.responseText);
                     });
+
             });
         });
     </script>
