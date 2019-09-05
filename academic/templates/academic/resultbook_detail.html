@@ -10,7 +10,11 @@
                     <div class="table-data__tool-left">
                         <button class="au-btn au-btn-icon au-btn--green au-btn--small"
                                 data-toggle="modal" data-target="#resultEditorModal">
-                            <i class="zmdi zmdi-plus"></i>add result
+                            add result
+                        </button>
+                        <button id="updateBtn" class="au-btn au-btn-icon au-btn--green au-btn--small"
+                        onclick="updateResultbook()">
+                            Update
                         </button>
                     </div>
                 </div>
@@ -117,5 +121,10 @@
                     });
             });
         });
+
+        function updateResultbook() {
+            window.location.assign('/academic/resultbooks/{{ resultbook.pk }}/update');
+        }
+
     </script>
 {% endblock %}

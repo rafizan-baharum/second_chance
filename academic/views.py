@@ -62,6 +62,19 @@ def resultbook_create_view(request):
     else:
         return render(request, 'academic/resultbook_create.html', context)
 
+def resultbook_update_view(request, pk):
+    resultbook = get_object_or_404(Resultbook, pk=pk)
+    form = ResultbookModelForm(request.POST or None, instance=resultbook)
+    context = {'form': form}
+
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+        return redirect('academic:resultbook_list')
+    else:
+        return render(request, 'academic/resultbook_update.html', context)
+
 
 def result_create_modal(request, pk):
     form = ResultModelForm(request.POST or None)

@@ -32,6 +32,12 @@ def session_schedule_view(request):
     return render(request, 'counseling/session_schedule.html', context)
 
 
+def session_summary_view(request, pk):
+    session = get_object_or_404(Session, pk=pk)
+    student = session.student
+    context = {'session': session, 'student': student}
+    return render(request, 'counseling/session_summary.html', context)
+
 def session_detail_view(request, pk):
     session = get_object_or_404(Session, pk=pk)
     student = session.student
@@ -49,3 +55,16 @@ def session_create_view(request):
         return redirect('counseling:session_list')
     else:
         return render(request, 'counseling/session_create.html', context)
+
+
+def session_update_view(request, pk):
+    session = get_object_or_404(Session, pk=pk)
+    form = SessionModelForm(request.POST or None, instance=session)
+    context = {'form': form}
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+        return redirect('counseling:session_list')
+    else:
+        return render(request, 'counseling/session_update.html', context)

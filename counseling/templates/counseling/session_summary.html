@@ -1,0 +1,66 @@
+{% extends "counseling/session_base.html" %}
+
+{% load static %}
+
+{% block sub-content %}
+    <div class="col-lg-9">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <button id="updateBtn" class="au-btn au-btn-icon au-btn--green au-btn--small"
+                                onclick="updateSession()">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Session Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Counselor</div>
+                                    <div class="col-md-9">{{ session.counselor.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Remarks</div>
+                                    <div class="col-md-9">{{ session.remarks }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Venue</div>
+                                    <div class="col-md-9">{{ session.venue }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Date</div>
+                                    <div class="col-md-9">{{ session.counseled_date|date:"d/m/Y" }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block main-js %}
+    <script>
+        function updateSession() {
+            window.location.assign('{{ session.get_edit_url }}');
+        }
+
+        function deleteSession() {
+            window.location.assign('{{ session.get_delete_url }}');
+        }
+    </script>
+{% endblock %}

@@ -47,6 +47,7 @@ def grant_request_view(request, pk):
     context = {'grant': grant, 'student': student}
     return render(request, 'financialaid/grant_detail.html', context)
 
+
 def grant_create_view(request):
     form = GrantModelForm(request.POST or None)
     if form.is_valid():
@@ -57,3 +58,16 @@ def grant_create_view(request):
         return redirect('/financialaid/grants/list/')
     context = {'form': form}
     return render(request, 'financialaid/grant_create.html', context)
+
+
+def grant_update_view(request, pk):
+    grant = get_object_or_404(Grant, pk=pk)
+    form = GrantModelForm(request.POST or None, instance=grant)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+        form = GrantModelForm()
+        return redirect('/financialaid/grants/list/')
+    context = {'form': form}
+    return render(request, 'financialaid/grant_update.html', context)

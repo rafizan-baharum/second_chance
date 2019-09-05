@@ -13,64 +13,78 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Grant Summary</h4>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                {% for summaryGrant in summaryGrants %}
-                                    <div class="row">
-                                        <div class="col-md-3">{{ summaryGrant.disbursed_date.year }}</div>
-                                        <div class="col-md-9">RM{{ summaryGrant.sum }}</div>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-12">
-                {% for grant in grants %}
+        {% if grants %}
+            <div class="row">
+                <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>Grant {{ grant.pk }} </h4>
+                            <h4>Grant Summary</h4>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-md-3">Donor</div>
-                                        <div class="col-md-9">{{ grant.donor }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">Amount</div>
-                                        <div class="col-md-9">{{ grant.amount }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">Purpose</div>
-                                        <div class="col-md-9">{{ grant.purpose }}</div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="row">
-                                        <div class="col-md-3">Disbursed</div>
-                                        <div class="col-md-9">{{ grant.disbursed_date|date:"d/m/Y" }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">Approved</div>
-                                        <div class="col-md-9">{{ grant.approved_date|date:"d/m/Y"  }}</div>
-                                    </div>
+                                    {% for summaryGrant in summaryGrants %}
+                                        <div class="row">
+                                            <div class="col-md-3">{{ summaryGrant.disbursed_date.year }}</div>
+                                            <div class="col-md-9">RM{{ summaryGrant.sum }}</div>
+                                        </div>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                </div>
+
+                <div class="col-lg-12">
+                    {% for grant in grants %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Grant {{ grant.pk }} </h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-md-3">Donor</div>
+                                            <div class="col-md-9">{{ grant.donor }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">Amount</div>
+                                            <div class="col-md-9">{{ grant.amount }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">Purpose</div>
+                                            <div class="col-md-9">{{ grant.purpose }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="row">
+                                            <div class="col-md-3">Disbursed</div>
+                                            <div class="col-md-9">{{ grant.disbursed_date|date:"d/m/Y" }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">Approved</div>
+                                            <div class="col-md-9">{{ grant.approved_date|date:"d/m/Y" }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+        {% else %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>No grants have been disbursed yet</p>
+                            <p>Add a grant <a href="/financialaid/grants/create">here</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

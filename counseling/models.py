@@ -100,7 +100,7 @@ class Session(models.Model):  # Session_set -> queryset
         return f"/counseling/sessions/{self.id}"
 
     def get_edit_url(self):
-        return f"{self.get_absolute_url()}/edit"
+        return f"{self.get_absolute_url()}/update"
 
     def get_delete_url(self):
         return f"{self.get_absolute_url()}/delete"

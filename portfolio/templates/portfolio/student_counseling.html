@@ -13,38 +13,54 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                {% for session in sessions %}
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Session {{ session.pk }}</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="row">
-                                        <div class="col-md-3">Counselor</div>
-                                        <div class="col-md-9">{{ session.counselor.name }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">Venue</div>
-                                        <div class="col-md-9">{{ session.venue }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">Remarks</div>
-                                        <div class="col-md-9">{{ session.remarks }}</div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3">Date</div>
-                                        <div class="col-md-9">{{ session.counseled_date |date:"d/m/Y" }}</div>
+
+        {% if sessions %}
+            <div class="row">
+                <div class="col-lg-12">
+                    {% for session in sessions %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Session {{ session.pk }}</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-md-3">Counselor</div>
+                                            <div class="col-md-9">{{ session.counselor.name }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">Venue</div>
+                                            <div class="col-md-9">{{ session.venue }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">Remarks</div>
+                                            <div class="col-md-9">{{ session.remarks }}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">Date</div>
+                                            <div class="col-md-9">{{ session.counseled_date |date:"d/m/Y" }}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+
+        {% else %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>No sessions have been registered yet.</p>
+                            <p>Add a session <a href="/counseling/sessions/create">here</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
     </div>
 {% endblock %}

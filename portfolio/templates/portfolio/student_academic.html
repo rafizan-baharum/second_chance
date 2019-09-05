@@ -14,29 +14,44 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-12">
-                {% for resultbook in resultbooks %}
-                    <div class="card">
-                        <div class="card-header">
-                            <h4>Semester {{ resultbook.semester.code }} ({{ resultbook.level.name }}
-                                - {{ resultbook.school.name }})</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    {% for result in resultbook.results.all %}
-                                        <div class="row">
-                                            <div class="col-md-3">{{ result.subject.name }}</div>
-                                            <div class="col-md-9">{{ result.grade }}</div>
-                                        </div>
-                                    {% endfor %}
+        {% if resultbooks %}
+            <div class="row">
+                <div class="col-lg-12">
+                    {% for resultbook in resultbooks %}
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Semester {{ resultbook.semester.code }} ({{ resultbook.level.name }}
+                                    - {{ resultbook.school.name }})</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        {% for result in resultbook.results.all %}
+                                            <div class="row">
+                                                <div class="col-md-3">{{ result.subject.name }}</div>
+                                                <div class="col-md-9">{{ result.grade }}</div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
+
+        {% else %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>No resultbooks have been registered yet</p>
+                            <p>Add a resultbook <a href="/academic/resultbooks/create">here</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
     </div>
 {% endblock %}

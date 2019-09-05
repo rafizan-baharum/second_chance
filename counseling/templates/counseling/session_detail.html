@@ -1,64 +1,126 @@
-{% extends "base.html" %}
+{% extends "counseling/session_base.html" %}
 
 {% load static %}
 
-{% block main-content %}
-    <div class="row ">
-        <div class="col-md-12">
-            <div class="overview-wrap">
-                <h2 class="title-1">Session Detail</h2>
+{% block sub-content %}
+    <div class="col-lg-9">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <button id="updateBtn" class="au-btn au-btn-icon au-btn--green au-btn--small"
+                                onclick="updateSession()">
+                            Update
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="row m-t-25">
-        <div class="col-md-3">
-            <aside class="profile-nav alt">
-                <section class="card">
-                    <div class="card-header user-header alt bg-dark">
-                        <div class="media">
-                            <a href="#">
-                                <img class="align-self-center rounded-circle mr-3" style="width:85px; height:85px;"
-                                     alt="" src="{% static 'images/icon/indiana.jpg' %}">
-                            </a>
-                            <div class="media-body">
-                                <h2 class="text-light display-6">{{ student.name }}</h2>
-                                <p>{{ student.nric_no }}</p>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Session Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Counselor</div>
+                                    <div class="col-md-9">{{ session.counselor.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Remarks</div>
+                                    <div class="col-md-9">{{ session.remarks }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Venue</div>
+                                    <div class="col-md-9">{{ session.venue }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Date</div>
+                                    <div class="col-md-9">{{ session.counseled_date|date:"d/m/Y" }}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <a href="{{ student.get_absolute_url }}/summary">Summary</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="{{ student.get_absolute_url }}/personal">Detail</a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="{{ student.get_absolute_url }}/academic">Schedule</a>
-                        </li>
-                    </ul>
-                </section>
-            </aside>
+                </div>
+            </div>
         </div>
 
-        {% block sub-content %}
-        {% endblock %}
-
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Student</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">Name</div>
+                                    <div class="col-md-9">{{ student.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Nick Name</div>
+                                    <div class="col-md-9">{{ student.nick_name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">NRIC</div>
+                                    <div class="col-md-9">{{ student.nric_no }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Birthdate</div>
+                                    <div class="col-md-9">{{ student.birth_date |date:"d/m/Y" }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Address</div>
+                                    <div class="col-md-9">
+                                        {{ student.address1 }} <br/>
+                                        {{ student.address2 }} <br/>
+                                        {{ student.address3 }} <br/>
+                                        {{ student.city.name }} <br/>
+                                        {{ student.state.name }} <br/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="row">
+                                    <div class="col-md-3">School</div>
+                                    <div class="col-md-9">{{ student.school.code }} - {{ student.school.name }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Gender</div>
+                                    <div class="col-md-9">{{ student.gender }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Race</div>
+                                    <div class="col-md-9">{{ student.race }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">Religion</div>
+                                    <div class="col-md-9">{{ student.religion }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 
-
 {% block main-js %}
     <script>
-        function editStudent() {
-            window.location.assign('{{ student.get_edit_url }}');
+        function updateSession() {
+            window.location.assign('{{ session.get_edit_url }}');
         }
 
-        function deleteStudent() {
-            window.location.assign('{{ student.get_delete_url }}');
+        function deleteSession() {
+            window.location.assign('{{ session.get_delete_url }}');
         }
     </script>
 {% endblock %}

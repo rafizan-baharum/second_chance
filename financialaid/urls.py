@@ -1,6 +1,7 @@
 from django.urls import path
 
-from financialaid.views import index_page, grant_list_view, grant_detail_view, grant_summary_view, grant_create_view
+from financialaid.views import index_page, grant_list_view, grant_detail_view, grant_summary_view, grant_create_view, \
+    grant_update_view
 
 urlpatterns = [
     path('', index_page),
@@ -10,4 +11,5 @@ urlpatterns = [
     path('grants/<str:pk>/', grant_detail_view),
     path('grants/<str:pk>/summary', grant_summary_view),
     path('grants/<str:pk>/detail', grant_detail_view),
+    path('grants/<str:pk>/update', grant_update_view),
 ]

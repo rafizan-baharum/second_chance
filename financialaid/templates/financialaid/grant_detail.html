@@ -2,6 +2,19 @@
 
 {% block sub-content %}
     <div class="col-lg-9">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <button id="updateBtn" class="au-btn au-btn-icon au-btn--green au-btn--small"
+                                onclick="updateGrant()">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -23,11 +36,11 @@
                             <div class="col-lg-6">
                                 <div class="row">
                                     <div class="col-md-3">Disbursed</div>
-                                    <div class="col-md-9">{{ grant.disbursed_date|date:"d/m/Y"  }}</div>
+                                    <div class="col-md-9">{{ grant.disbursed_date|date:"d/m/Y" }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">Approved</div>
-                                    <div class="col-md-9">{{ grant.approved_date|date:"d/m/Y"  }}</div>
+                                    <div class="col-md-9">{{ grant.approved_date|date:"d/m/Y" }}</div>
                                 </div>
                             </div>
                         </div>
@@ -97,36 +110,43 @@
         </div>
 
         <div class="row">
-        <div class="col-md-12 m-t-25">
-            <div class="table-responsive m-b-40">
-                <table class="table table-borderless table-striped table-data3">
-                    <thead>
-                    <tr>
-                        <th>AMOUNT</th>
-                        <th>APPROVED</th>
-                        <th>DISBURSED</th>
-                    </tr>
-                    </thead>
-
-                    {% for grant in grants %}
-                        <tr class='clickable-row' data-href='{{ grant.get_absolute_url }}'>
-                            <td>
-                                {{ grant.amount }}
-                            </td>
-                            <td>
-                                {{ grant.approved_date |date:"d/m/Y" }}
-                            </td>
-                            <td>
-                                {{ grant.disbursed_date |date:"d/m/Y" }}
-                            </td>
+            <div class="col-md-12 m-t-25">
+                <div class="table-responsive m-b-40">
+                    <table class="table table-borderless table-striped table-data3">
+                        <thead>
+                        <tr>
+                            <th>AMOUNT</th>
+                            <th>APPROVED</th>
+                            <th>DISBURSED</th>
                         </tr>
-                    {% endfor %}
-                </table>
+                        </thead>
+
+                        {% for grant in grants %}
+                            <tr class='clickable-row' data-href='{{ grant.get_absolute_url }}'>
+                                <td>
+                                    {{ grant.amount }}
+                                </td>
+                                <td>
+                                    {{ grant.approved_date |date:"d/m/Y" }}
+                                </td>
+                                <td>
+                                    {{ grant.disbursed_date |date:"d/m/Y" }}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+{% endblock %}
 
+{% block main-js %}
+    <script>
 
-    </div>
+        function updateGrant() {
+            window.location.assign('/financialaid/grants/{{ grant.pk }}/update');
+        }
 
+    </script>
 {% endblock %}

@@ -33,10 +33,10 @@
                                 {{ grant.amount }}
                             </td>
                             <td>
-                                {{ grant.approved_date }}
+                                {{ grant.approved_date|date:"d/m/Y" }}
                             </td>
                             <td>
-                                {{ grant.disbursed_date|date:"d/m/Y"  }}
+                                {{ grant.disbursed_date|date:"d/m/Y" }}
                             </td>
                         </tr>
                     {% endfor %}

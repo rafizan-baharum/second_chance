@@ -19,7 +19,8 @@
                     <tr>
                         <th>NRIC</th>
                         <th>NAME</th>
-                        <th>REGISTERED</th>
+                        <th>VENUE</th>
+                        <th>DATE</th>
                     </tr>
                     </thead>
 
@@ -32,7 +33,10 @@
                                 {{ session.counselor.name }}
                             </td>
                             <td>
-                                {{ session.counseled_date }}
+                                {{ session.venue }}
+                            </td>
+                            <td>
+                                {{ session.counseled_date |date:"d/m/Y" }}
                             </td>
                         </tr>
                     {% endfor %}
