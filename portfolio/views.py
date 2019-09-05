@@ -32,7 +32,13 @@ def student_list_view(request):
 
 def student_search_view(request):
     keyword = request.GET.get('keyword', '')
-    qs = Student.objects.filter((Q(name__icontains=keyword)))
+    qs = Student.objects.filter((Q(name__icontains=keyword) |
+                                 Q(nick_name__icontains=keyword) |
+                                 Q(nric_no__icontains=keyword) |
+                                 Q(address1__icontains=keyword) |
+                                 Q(address2__icontains=keyword) |
+                                 Q(address3__icontains=keyword)
+                                 ))
     page = request.GET.get('page', 1)
     paginator = Paginator(qs, 10)
     try:
