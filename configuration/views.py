@@ -4,8 +4,8 @@ from django.shortcuts import render
 # Create your views here.
 from academic.forms import SubjectModelForm, SemesterModelForm, LevelModelForm, SchoolModelForm
 from academic.models import Semester, Subject, Level
-from portfolio.forms import CityModelForm, StateModelForm
-from portfolio.models import School, State, City
+from portfolio.forms import CityModelForm, StateModelForm, CounselorModelForm
+from portfolio.models import School, State, City, Counselor
 
 
 def index_page(request):
@@ -111,6 +111,24 @@ def state_list_view(request):
 
 def state_create_modal(request):
     form = StateModelForm(request.POST or None)
+    if form.is_valid():
+        obj = form.save(commit=False)
+        obj.user = request.user
+        obj.save()
+    else:
+        return HttpResponse('Error adding object', status=500)
+    return HttpResponse('Success')
+
+
+def counselor_list_view(request):
+    qs = Counselor.objects.all()
+    counselor_form = CounselorModelForm(None)
+    context = {'counselors': qs, 'counselor_form': counselor_form}
+    return render(request, 'configuration/counselor_list.html', context)
+
+
+def counselor_create_modal(request):
+    form = CounselorModelForm(request.POST or None)
     if form.is_valid():
         obj = form.save(commit=False)
         obj.user = request.user

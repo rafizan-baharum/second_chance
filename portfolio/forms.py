@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Student, City, State
+from .models import Student, City, State, Counselor
 
 
 class CityModelForm(forms.ModelForm):
@@ -13,6 +13,15 @@ class StateModelForm(forms.ModelForm):
     class Meta:
         model = State
         fields = ['code', 'name']
+
+
+class CounselorModelForm(forms.ModelForm):
+    class Meta:
+        model = Counselor
+        fields = [
+            'nric_no', 'name',
+            'address1', 'address2', 'address3', 'city', 'state',
+        ]
 
 
 class StudentModelForm(forms.ModelForm):
