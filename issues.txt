@@ -228,6 +228,8 @@ https://stackoverflow.com/questions/9834038/django-order-by-query-set-ascending-
 modal
 https://stackoverflow.com/questions/47465236/bootstrap-4-modal-hide-not-working
 https://stackoverflow.com/questions/46507805/how-to-display-django-form-in-modal-window
+
+
 https://stackoverflow.com/questions/9051551/is-it-possible-to-return-an-httpresponse-in-django-with-text-a-json-object
 https://www.abidibo.net/blog/2014/05/26/how-implement-modal-popup-django-forms-bootstrap/
 https://stackoverflow.com/questions/53252429/how-to-pass-data-to-a-modal-in-django-with-ajax
@@ -237,3 +239,6 @@ https://stackoverflow.com/questions/8746014/django-group-by-date-day-month-year
 https://stackoverflow.com/questions/22844845/q-object-has-no-attribute-split-django
 https://stackoverflow.com/questions/2697719/error-handling-with-post
 https://stackoverflow.com/questions/7737146/how-to-change-the-default-django-date-template-format
+
+https://stackoverflow.com/questions/1387727/checking-for-empty-queryset-in-django
+https://stackoverflow.com/questions/346467/format-numbers-in-django-templates

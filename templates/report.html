@@ -1,0 +1,292 @@
+{% load static %}
+{% load humanize %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Second Chance">
+    <meta name="author" content="Terang Academy">
+    <meta name="keywords" content="Second Chance by Terang Academy">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="{% static 'css/font-face.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/font-awesome-5/css/fontawesome-all.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet"
+          media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{% static 'vendor/bootstrap-4.1/bootstrap.min.css' %}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'vendor/animsition/animsition.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css' %}"
+          rel="stylesheet" media="all">
+    <link href="{% static 'vendor/wow/animate.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/slick/slick.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css' %}" rel="stylesheet"
+          media="all">
+    <link href="{% static 'vendor/fullcalendar/core/main.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/fullcalendar/daygrid/main.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/fullcalendar/bootstrap/main.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/theme.css' %}" rel="stylesheet" media="all">
+
+</head>
+
+<body>
+<div class="page-wrapper">
+    <!-- HEADER DESKTOP-->
+    <header class="header-desktop4 d-none d-lg-block">
+        <div class="section__content section__content--p35">
+            <div class="header3-wrap">
+                <div class="header__logo">
+                    <a href="#">
+                        <img src="{% static 'images/icon/logo.png' %}" alt="Second Chance"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER DESKTOP-->
+
+    <!-- HEADER MOBILE-->
+    <header class="header-mobile header-mobile-2 d-block d-lg-none">
+        <div class="header-mobile__bar">
+            <div class="container-fluid">
+                <div class="header-mobile-inner">
+                    <a class="logo" href="/">
+                        <img src="{% static 'images/icon/logo.png' %}"/>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END HEADER MOBILE -->
+
+    <!-- PAGE CONTENT-->
+    <div class="page-content--bgf7">
+        <!-- WELCOME-->
+        <section class="welcome p-t-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title-4">Report Card for {{ student.name }} ({{ student.nric_no }})</h1>
+                        <hr class="line-seprate">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END WELCOME-->
+
+        <!-- STATISTIC-->
+        <section class="statistic statistic2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="statistic__item statistic__item--green">
+                            <h2 class="number">RM {{ totalGrant.sum | floatformat:2|intcomma }}</h2>
+                            <span class="desc">Total Disbursed</span>
+                            <div class="icon">
+                                <i class="zmdi zmdi-account-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="statistic__item statistic__item--orange">
+                            <h2 class="number">{{ recentResultbook.cgpa }}</h2>
+                            <span class="desc">Latest CGPA</span>
+                            <div class="icon">
+                                <i class="zmdi zmdi-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="statistic__item statistic__item--blue">
+                            <h2 class="number">0</h2>
+                            <span class="desc">Displinary Issues</span>
+                            <div class="icon">
+                                <i class="zmdi zmdi-calendar-note"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END STATISTIC-->
+
+        <!-- STATISTIC CHART-->
+        <section class="statistic-chart">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="title-5 m-b-35">Student Information</h3>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6 col-lg-4">
+                        <aside class="profile-nav">
+                            <section class="card">
+                                <div class="card-header user-header alt bg-dark">
+                                    <div class="media">
+                                        <a href="#">
+                                            <img class="align-self-center rounded-circle mr-3"
+                                                 style="width:85px; height:85px;"
+                                                 alt="" src="{{ student.image.url }}">
+                                        </a>
+                                        <div class="media-body">
+                                            <h2 class="text-light display-6">{{ student.name }}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-top-campaign">
+                                        <tbody>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>{{ student.name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Race</td>
+                                            <td>{{ student.race }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Birth Date</td>
+                                            <td>{{ student.birth_date }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>City</td>
+                                            <td>{{ student.city.name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>State</td>
+                                            <td>{{ student.state.name }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </section>
+                        </aside>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <!-- RECENT FINANCIAL AID-->
+                        <div class="top-campaign">
+                            <h3 class="title-3 m-b-30">Grant Summary</h3>
+                            <div class="table-responsive">
+                                {% if summaryGrants %}
+                                    <table class="table table-top-campaign">
+                                        <tbody>
+                                        {% for summaryGrant in summaryGrants %}
+                                            <tr>
+                                                <td>{{ summaryGrant.disbursed_date.year }}</td>
+                                                <td>RM {{ summaryGrant.sum | floatformat:2|intcomma }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <p>No grant has been disbursed.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- END FINANCIAL AID-->
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <!-- RECENT ACADEMIC-->
+                        <div class="top-campaign">
+                            <h3 class="title-3 m-b-30">Recent Academics</h3>
+                            <div class="table-responsive">
+                                {% if summaryGrants %}
+                                    <table class="table table-top-campaign">
+                                        <tbody>
+                                        {% for recentResultbook in recentResultbooks %}
+                                            <tr>
+                                                <td>{{ recentResultbook.semester.name }}</td>
+                                                <td>{{ recentResultbook.cgpa }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                {% else %}
+                                    <p>No grant has been disbursed.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <!-- END ACADEMICS-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END STATISTIC CHART-->
+
+        <!-- DATA TABLE-->
+        <section class="p-t-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END DATA TABLE-->
+
+        <!-- COPYRIGHT-->
+        <section class="p-t-60 p-b-20">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © 2019 Canang Technologies. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END COPYRIGHT-->
+    </div>
+
+</div>
+
+<!-- Jquery JS-->
+<script src="{% static 'vendor/jquery-3.2.1.min.js' %}"></script>
+<!-- Bootstrap JS-->
+<script src="{% static 'vendor/bootstrap-4.1/popper.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-4.1/bootstrap.min.js' %}"></script>
+<!-- Vendor JS       -->
+<script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+<script src="{% static 'vendor/wow/wow.min.js' %}"></script>
+<script src="{% static 'vendor/animsition/animsition.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-progressbar/bootstrap-progressbar.min.js' %}"></script>
+<script src="{% static 'vendor/counter-up/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'vendor/counter-up/jquery.counterup.min.js' %}"></script>
+<script src="{% static 'vendor/circle-progress/circle-progress.min.js' %}"></script>
+<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.js' %}"></script>
+<script src="{% static 'vendor/chartjs/Chart.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+<script src="{% static 'vendor/moment/moment.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js' %}"></script>
+<script src="{% static 'vendor/fullcalendar/core/main.js' %}"></script>
+<script src="{% static 'vendor/fullcalendar/daygrid/main.js' %}"></script>
+<script src="{% static 'vendor/fullcalendar/bootstrap/main.js' %}"></script>
+
+<!-- Main JS-->
+<script src="{% static 'js/main.js' %}"></script>
+{#{% block main-js %}(no main-js){% endblock %}#}
+</body>
+
+</html>
+<!-- end document-->

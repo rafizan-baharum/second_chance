@@ -79,10 +79,6 @@ def student_counseling_view(request, nric_no):
 
 def student_financialaid_view(request, nric_no):
     student = get_object_or_404(Student, nric_no=nric_no)
-    # sum = Grant.objects.filter(student=student, disbursed_date__year=2019).aggregate(Sum('amount'))
-    # print(sum)
-    # sum = Grant.objects.filter(student=student, disbursed_date__year=2020).aggregate(Sum('amount'))
-    # print(sum)
     summaryGrants = Grant.objects.filter(student=student).annotate(month=TruncYear('disbursed_date')).values(
         'disbursed_date').annotate(sum=Sum('amount')).order_by()
     print(summaryGrants)

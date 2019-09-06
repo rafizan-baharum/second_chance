@@ -18,10 +18,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from second_chance.views import home_page
+from second_chance.views import home_page, report_page
 
 urlpatterns = [
     path('', home_page),
+    path('report/<str:nric_no>/', report_page),
     path('admin/', admin.site.urls),
     path('portfolio/', include(('portfolio.urls', 'portfolio'), namespace='portfolio')),
     path('academic/', include(('academic.urls', 'academic'), namespace='academic')),
