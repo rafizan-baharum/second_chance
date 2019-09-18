@@ -17,6 +17,7 @@ def index_page(request):
     return render(request, "portfolio/index.html", context)
 
 
+
 def student_list_view(request):
     qs = Student.objects.all().registered()
     page = request.GET.get('page', 1)

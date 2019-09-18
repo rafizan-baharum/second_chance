@@ -242,3 +242,5 @@ https://stackoverflow.com/questions/7737146/how-to-change-the-default-django-dat
 
 https://stackoverflow.com/questions/1387727/checking-for-empty-queryset-in-django
 https://stackoverflow.com/questions/346467/format-numbers-in-django-templates
+
+https://stackoverflow.com/questions/8616343/django-calculate-the-sum-of-the-column-values-through-query
