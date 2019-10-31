@@ -18,17 +18,17 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from second_chance.views import home_page, report_page
+from second_chance.views import home_page, report_page, about_page
 
 urlpatterns = [
     path('', home_page),
-    path('report/<str:nric_no>/', report_page),
     path('admin/', admin.site.urls),
     path('portfolio/', include(('portfolio.urls', 'portfolio'), namespace='portfolio')),
     path('academic/', include(('academic.urls', 'academic'), namespace='academic')),
     path('counseling/', include(('counseling.urls', 'counseling'), namespace='counseling')),
     path('financialaid/', include(('financialaid.urls', 'financialaid'), namespace='financialaid')),
     path('configuration/', include(('configuration.urls', 'configuration'), namespace='configuration')),
+    path('about', about_page),
 ]
 
 if settings.DEBUG: # new

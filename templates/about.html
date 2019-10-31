@@ -1,7 +1,202 @@
 {% extends "base.html" %}
 
-{% block head_title %}About Us{% endblock %}
+{% block head-title %} <title>About Us</title> {% endblock %}
 
-{% block content %}
-    <p>This is more about stuff {{ title }}</p>
+{% load static %}
+
+{% block main-content %}
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title mb-3">Contributor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block"
+                                         src="{% static 'images/contributors/20190927_092242.jpg' %} "
+                                         alt="Izzat">
+                                    <h5 class="text-sm-center mt-2 mb-1">Izzat Amal</h5>
+                                    <div class="location text-sm-center">Project Manager</div>
+                                </div>
+{#                                <hr>#}
+{#                                <div class="card-text text-sm-center">#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-facebook pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-twitter pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-linkedin pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-pinterest pr-1"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title mb-3">Contributor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block"
+                                         src="{% static 'images/contributors/empty.png' %} "
+                                         alt="Izzat">
+                                    <h5 class="text-sm-center mt-2 mb-1">This Could Be You!</h5>
+                                    <div class="location text-sm-center">Developer</div>
+                                </div>
+{#                                <hr>#}
+{#                                <div class="card-text text-sm-center">#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-facebook pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-twitter pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-linkedin pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-pinterest pr-1"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title mb-3">Contributor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block"
+                                         src="{% static 'images/contributors/20190927_092832.jpg' %} "
+                                         alt="Izzat">
+                                    <h5 class="text-sm-center mt-2 mb-1">Nadia Jamaludeen</h5>
+                                    <div class="location text-sm-center">UX Developer</div>
+                                </div>
+{#                                <hr>#}
+{#                                <div class="card-text text-sm-center">#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-facebook pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-twitter pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-linkedin pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-pinterest pr-1"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title mb-3">Contributor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block"
+                                         src="{% static 'images/contributors/20190927_092520.jpg' %} "
+                                         alt="Izzat">
+                                    <h5 class="text-sm-center mt-2 mb-1">Jundullah Ismail</h5>
+                                    <div class="location text-sm-center">Developer</div>
+                                </div>
+{#                                <hr>#}
+{#                                <div class="card-text text-sm-center">#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-facebook pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-twitter pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-linkedin pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-pinterest pr-1"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title mb-3">Contributor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block"
+                                         src="{% static 'images/contributors/20190927_093247.jpg' %} "
+                                         alt="Izzat">
+                                    <h5 class="text-sm-center mt-2 mb-1">Sridev Kumar</h5>
+                                    <div class="location text-sm-center">Developer</div>
+                                </div>
+{#                                <hr>#}
+{#                                <div class="card-text text-sm-center">#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-facebook pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-twitter pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-linkedin pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-pinterest pr-1"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title mb-3">Contributor</strong>
+                            </div>
+                            <div class="card-body">
+                                <div class="mx-auto d-block">
+                                    <img class="rounded-circle mx-auto d-block"
+                                         src="{% static 'images/contributors/20190927_099999.jpg' %} "
+                                         alt="Izzat">
+                                    <h5 class="text-sm-center mt-2 mb-1">Hazelina Jalen</h5>
+                                    <div class="location text-sm-center">Developer</div>
+                                </div>
+{#                                <hr>#}
+{#                                <div class="card-text text-sm-center">#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-facebook pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-twitter pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-linkedin pr-1"></i>#}
+{#                                    </a>#}
+{#                                    <a href="#">#}
+{#                                        <i class="fa fa-pinterest pr-1"></i>#}
+{#                                    </a>#}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

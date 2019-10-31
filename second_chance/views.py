@@ -38,3 +38,8 @@ def report_page(request, nric_no):
         'recentResultbooks': recentResultbooks
     }
     return render(request, "report.html", context)
+
+def about_page(request):
+    context = {}
+    return render(request, "about.html", context)
+

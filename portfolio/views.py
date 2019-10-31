@@ -17,7 +17,6 @@ def index_page(request):
     return render(request, "portfolio/index.html", context)
 
 
-
 def student_list_view(request):
     qs = Student.objects.all().registered()
     page = request.GET.get('page', 1)
@@ -30,6 +29,7 @@ def student_list_view(request):
         students = paginator.page(paginator.num_pages)
     context = {'students': students}
     return render(request, 'portfolio/student_list.html', context)
+
 
 def student_search_view(request):
     keyword = request.GET.get('keyword', '')
@@ -97,6 +97,7 @@ def student_create_view(request):
         obj.save()
         return redirect('/portfolio/students/list/')
     return render(request, 'portfolio/student_create.html', context)
+
 
 def student_update_view(request, nric_no):
     student = get_object_or_404(Student, nric_no=nric_no)
