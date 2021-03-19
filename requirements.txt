@@ -15,7 +15,7 @@ django-haystack==2.8.1
 django-leaflet==0.24.0
 django-polymorphic==2.1.2
 django-sorcery==0.9.4
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 djangorestframework-simplejwt==4.3.0
 et-xmlfile==1.0.1
 graphviz==0.11.1
